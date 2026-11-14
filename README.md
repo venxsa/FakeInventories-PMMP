@@ -1,8 +1,10 @@
+<div align="center">
+    
 # FakeInventories
-✨A simple way to create a GUI on servers based on **PocketMine-MP 4.0**!✨
+✨A simple way to create a GUI on servers based on **PocketMine-MP 5.x** (API 5.0.0+)!✨
 (https://youtu.be/D1NIx8E2UPg)
-
-
+</div>
+    
 ## Features
 - Fast opening without any delay
 - Opening a FakeInventory behind the player so the player cannot see it
@@ -13,7 +15,7 @@
 
 ## Installation
 
-1. Download plugin by clicking [here](https://github.com/iDarkQ/FakeInventories-PMMP/archive/refs/heads/master.zip)
+1. Download plugin by clicking [here](https://github.com/venxsa/FakeInventories-PMMP)
 2. Put the plugin into your plugins folder
 
 ## Usage
@@ -37,9 +39,20 @@ public function setItems() : void {
 }
 ```
 
+### Filling the inventory
+```php
+// Fills every empty slot with the given item (default: gray stained glass pane with an empty name)
+$this->fill();
+$this->fill(VanillaBlocks::STAINED_GLASS_PANE()->setColor(DyeColor::BLACK())->asItem());
+
+// Fills only the given slots, you can use one of the example patterns from FakeInventoryPatterns
+$this->fillWithPattern(FakeInventoryPatterns::PATTERN_FILL_CORNERS);
+$this->fillWithPattern(FakeInventoryPatterns::PATTERN_FILL_UP_AND_DOWN, VanillaItems::DIAMOND());
+```
+
 ### At the end actions which are to be performed after clicking on an item
 ```php
-// $player - Player which cliekd on item
+// $player - Player which clicked on item
 // $sourceItem - It's the item that was clicked
 // $targetItem - It's the item that was clicked (almost useless)
 // $slot - It's a slot which was clicked by player
@@ -52,7 +65,7 @@ public function onTransaction(Player $player, Item $sourceItem, Item $targetItem
 
 ### Changing inventory
 ```php
-$this->changeInventory($player, (new YourFakeInventory($player)));
+$this->changeInventory($player, new YourFakeInventory());
 ```
 
 ### Closing inventory
@@ -63,7 +76,7 @@ $this->closeFor($player);
 ### Opening inventory
 ```php
 //if you want to open an inventory from a command level or another class, use
-(new YourFakeInventory($player))->openFor([$player]);
+(new YourFakeInventory())->openFor([$player]);
 
 //otherwise use this
 $this->openFor([$player]);
@@ -82,9 +95,9 @@ declare(strict_types=1);
 
 namespace your\namespace;
 
-use fakeinventory\inventories\FakeInventory;
+use fakeinventories\inventories\FakeInventory;
 use pocketmine\item\Item;
-use pocketmine\item\ItemIds;
+use pocketmine\item\ItemTypeIds;
 use pocketmine\item\VanillaItems;
 use pocketmine\player\Player;
 
@@ -99,7 +112,7 @@ class ExampleInventory extends FakeInventory {
     }
 
     public function onTransaction(Player $player, Item $sourceItem, Item $targetItem, int $slot) : bool {
-        if($sourceItem->getId() === ItemIds::GOLD_INGOT) {
+        if($sourceItem->getTypeId() === ItemTypeIds::GOLD_INGOT) {
             $this->changeInventory($player, new YourInventory());
         }
 
@@ -107,3 +120,7 @@ class ExampleInventory extends FakeInventory {
     }
 }
 ```
+## Credits
+
+* Original Author: [iDarkQ](https://github.com/iDarkQ)
+* Updated by: [venxsa](https://github.com/venxsa) *(updated to the latest version)*
