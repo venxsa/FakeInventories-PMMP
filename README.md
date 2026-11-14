@@ -14,7 +14,8 @@
 - Tested on several servers
 
 ## Example
-![Example]([https://d2h58dsjpbzmve.cloudfront.net/5en3u%2Fpreview%2F82025978%2Fmain_large.gif?response-content-disposition=inline%3Bfilename%3D%22main_large.gif%22%3B&response-content-type=image%2Fgif&Expires=1794662247&Signature=Vn0jKwLRub3aZKmdP2leFImEmbkVPUQTRXrqCq5-RjFWZ6u5LcX3E77SBaG3e4QZy5LqQQPGz6B84RGuQVg5NgcxYa1uAaobjyz2jPjF1XUMPSNXWEdJW5D5KUUL10XO5~I~pWjDm51sBrVlqg98JCPQsmw0MECKQ3TRnhx2eRLLw68YsxTO1rbhRYxrJeCb0M9jtbIgIg~nJFlkpAp9UmU1ibCVc2G~vYFnSM5aoOlFcpzff4b7IioYlDt1QOgH34~KmN2wZRD-BJKWwjw-iMW6beJizIGmMSX45oXBsh3AfD85zEw2aKPo1si-YaW8duMOpwJsCSJr89B7p8kZNw__&Key-Pair-Id=APKAJT5WQLLEOADKLHBQ](https://jumpshare.com/undefined))
+![animation](./examples/example.gif)
+
 ## Installation
 
 1. Download plugin by clicking [here](https://github.com/venxsa/FakeInventories-PMMP)
